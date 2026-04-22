@@ -106,7 +106,7 @@ export function PricingGrid({
                     className="hover:text-purple-400 text-3xl font-black text-[#0A192F] dark:text-white transition-colors duration-500 cursor-default"
                   >
                     ₹{item.price}
-                  </motion.span>
+                  </span>
                   <span className="text-[#0A192F]/60 dark:text-white/60 text-sm font-medium">/ session</span>
                 </div>
 
