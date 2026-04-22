@@ -74,61 +74,40 @@ export default function Home() {
             className="absolute inset-0"
           >
             {activePet ? (
-              <div 
-                className="absolute inset-0 bg-no-repeat bg-center bg-[length:auto_85%] opacity-40 transition-all duration-1000"
-                style={{ 
-                  backgroundImage: `url(${
-                    activePet === "dog" 
-                      ? "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=2069&auto=format&fit=crop" 
-                      : "/images/cat_bg_custom.png"
-                  })`
-                }}
-              />
+              <>
+                {/* Pet background image with heavy edge blending */}
+                <div 
+                  className={`absolute inset-0 bg-no-repeat bg-center transition-all duration-1000 ${
+                    activePet === "dog" ? "bg-[length:auto_85%] opacity-30" : "bg-[length:auto_70%] opacity-25"
+                  }`}
+                  style={{ 
+                    backgroundImage: `url(${
+                      activePet === "dog" 
+                        ? "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=2069&auto=format&fit=crop" 
+                        : "/images/cat_bg_custom.png"
+                    })`,
+                    maskImage: 'radial-gradient(ellipse 60% 60% at center, black 20%, transparent 60%)',
+                    WebkitMaskImage: 'radial-gradient(ellipse 60% 60% at center, black 20%, transparent 60%)',
+                    filter: 'blur(1px)'
+                  }}
+                />
+                {/* Edge blur overlays - stronger for cat */}
+                <div className={`absolute inset-0 bg-gradient-to-t from-[#F9F7F2] via-transparent to-[#F9F7F2] dark:from-[#0A192F] dark:via-transparent dark:to-[#0A192F] ${activePet === "cat" ? "opacity-90" : "opacity-80"}`} />
+                <div className={`absolute inset-0 bg-gradient-to-r from-[#F9F7F2] via-transparent to-[#F9F7F2] dark:from-[#0A192F] dark:via-transparent dark:to-[#0A192F] ${activePet === "cat" ? "opacity-80" : "opacity-60"}`} />
+              </>
             ) : (
               <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                {/* Ambient Flow Blobs */}
-                <motion.div
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    x: ["-10%", "10%", "-10%"],
-                    y: ["-10%", "10%", "-10%"],
-                  }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-purple-500/20 dark:bg-purple-500/10 blur-[120px]"
-                />
-                <motion.div
-                  animate={{
-                    scale: [1.2, 1, 1.2],
-                    x: ["10%", "-10%", "10%"],
-                    y: ["10%", "-10%", "10%"],
-                  }}
-                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                  className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-blue-500/15 dark:bg-blue-500/5 blur-[100px]"
-                />
+                {/* Ambient Flow Blobs - CSS animations for performance */}
+                <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-purple-500/15 dark:bg-purple-500/8 blur-[120px] animate-blob" />
+                <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-blue-500/10 dark:bg-blue-500/5 blur-[100px] animate-blob animation-delay-2000" />
 
-                {/* Main Logo with bobbing and slight rotation */}
-                <motion.img
+                {/* Main Logo - simplified animation */}
+                <img
                   src="/images/logo.png"
                   alt="PawPuff Background"
-                  animate={{
-                    opacity: isFooterVisible ? 0 : (activePet === "dog" || activePet === "cat" ? 0.3 : 0.6),
-                    scale: isFooterVisible ? 0.8 : [1, 1.03, 1],
-                    y: [0, -30, 0],
-                    rotate: [0, 2, -2, 0],
-                    filter: [
-                      "drop-shadow(0 0 50px rgba(192,132,252,0.25))",
-                      "drop-shadow(0 0 100px rgba(192,132,252,0.5))",
-                      "drop-shadow(0 0 50px rgba(192,132,252,0.25))"
-                    ]
-                  }}
-                  className="w-[550px] h-[550px] md:w-[700px] md:h-[700px] object-contain select-none pointer-events-none"
-                  transition={{
-                    opacity: { duration: 0.8 },
-                    scale: { duration: 0.8 },
-                    y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-                    rotate: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-                    filter: { duration: 8, repeat: Infinity, ease: "easeInOut" }
-                  }}
+                  className={`w-[550px] h-[550px] md:w-[700px] md:h-[700px] object-contain select-none pointer-events-none transition-all duration-700 animate-gentle-float drop-shadow-[0_0_60px_rgba(192,132,252,0.3)] ${
+                    isFooterVisible ? 'opacity-0 scale-90' : activePet ? 'opacity-30' : 'opacity-50'
+                  }`}
                 />
               </div>
             )}

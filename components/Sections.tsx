@@ -76,28 +76,29 @@ export function PricingGrid({
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-10">
+        <div className="flex flex-wrap justify-center gap-10 stagger-children">
           {currentData.map((item, index) => (
             <motion.div
               key={item.id}
               id={item.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -10 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               onMouseEnter={() => setIsHoveringService?.(true)}
               onMouseLeave={() => setIsHoveringService?.(false)}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="relative p-12 bg-[#0A192F]/5 dark:bg-white/5 backdrop-blur-xl border border-[#0A192F]/10 dark:border-white/10 hover:border-purple-500 group transition-all duration-500 max-w-sm w-full flex flex-col rounded-[45px] overflow-hidden scroll-mt-32"
+              className="relative p-12 bg-[#0A192F]/5 dark:bg-white/5 backdrop-blur-xl border border-[#0A192F]/10 dark:border-white/10 hover:border-purple-500/50 group transition-all duration-500 max-w-sm w-full flex flex-col rounded-[45px] overflow-hidden scroll-mt-32 hover-lift card-shine"
             >
+              {/* Signature badge - absolutely positioned */}
+              {index === currentData.length - 1 && (
+                <span className="absolute top-6 right-6 bg-gradient-to-r from-purple-600 to-purple-500 text-white text-[10px] font-semibold tracking-wider px-4 py-1.5 rounded-full shadow-lg z-10">
+                  ✨ Signature
+                </span>
+              )}
+              
               <div className="flex flex-col items-start gap-6 h-full flex-1">
-                {index === 1 && (
-                  <span className="bg-purple-600 text-white text-[10px] font-semibold tracking-wider px-4 py-1 rounded-full">
-                    Signature
-                  </span>
-                )}
                 <h3
-                  className="hover:text-purple-400 text-2xl font-black text-[#0A192F] dark:text-white transition-colors duration-500 cursor-default"
+                  className="text-2xl font-black text-[#0A192F] dark:text-white transition-colors duration-300 group-hover:text-purple-500"
                 >
                   {item.name}
                 </h3>
@@ -148,8 +149,6 @@ export function PricingGrid({
 /* --- Reviews / Ratings Section --- */
 export function Reviews({ activePet }: { activePet: "dog" | "cat" | null }) {
   const [userRatings, setUserRatings] = useState<any[]>([]);
-  const [filterRating, setFilterRating] = useState<number | "All">("All");
-  const [localPetType, setLocalPetType] = useState<"Default" | "All" | "dog" | "cat">("Default");
 
   useEffect(() => {
     const saved = localStorage.getItem("pawpuff_ratings");
@@ -186,20 +185,12 @@ export function Reviews({ activePet }: { activePet: "dog" | "cat" | null }) {
     { name: "Manisha Parthiban", pet: "Loyal Client", text: "PawPuff is consistent, convenient, and top-tier. They come fully equipped, leave absolutely no mess, and my puppy has never looked cuter.", rating: 5 }
   ];
 
-  // Determine effective pet type filter
-  const effectivePet = localPetType === "Default" ? activePet : (localPetType === "All" ? null : localPetType);
-
-  const filteredUserRatings = effectivePet
-    ? userRatings.filter(r => r.type === effectivePet || r.type === "mixed")
+  const filteredUserRatings = activePet
+    ? userRatings.filter(r => r.type === activePet || r.type === "mixed")
     : userRatings;
 
-  const baseReviews = effectivePet === "dog" ? dogReviews : effectivePet === "cat" ? catReviews : defaultReviews;
-  let currentReviews = [...filteredUserRatings, ...baseReviews];
-
-  // Filter by star rating
-  if (filterRating !== "All") {
-    currentReviews = currentReviews.filter((review) => review.rating === filterRating);
-  }
+  const baseReviews = activePet === "dog" ? dogReviews : activePet === "cat" ? catReviews : defaultReviews;
+  const currentReviews = [...filteredUserRatings, ...baseReviews];
 
   return (
     <section id="ratings" className="py-32 px-8 bg-transparent relative overflow-hidden">
@@ -211,45 +202,10 @@ export function Reviews({ activePet }: { activePet: "dog" | "cat" | null }) {
             ))}
           </div>
           <h2
-            className="hover:text-purple-400 text-4xl md:text-5xl font-black text-[#0A192F] dark:text-white tracking-tighter transition-colors duration-500 cursor-default mb-10"
+            className="hover:text-purple-400 text-4xl md:text-5xl font-black text-[#0A192F] dark:text-white tracking-tighter transition-colors duration-500 cursor-default"
           >
-            What our <span>Loyal Clients</span> said
+            What our <span className="animate-gradient-text">Loyal Clients</span> said
           </h2>
-
-          {/* Filters UI */}
-          <div className="flex flex-wrap items-center justify-center gap-8 bg-[#0A192F]/5 dark:bg-white/5 p-6 rounded-3xl border border-[#0A192F]/10 dark:border-white/10">
-
-            <div className="flex flex-col items-start gap-3">
-              <label className="text-[10px] font-bold uppercase tracking-wider text-purple-400/80 ml-2">Rating</label>
-              <select
-                value={filterRating}
-                onChange={(e) => setFilterRating(e.target.value === "All" ? "All" : Number(e.target.value))}
-                className="bg-transparent border-b-2 border-[#0A192F]/10 dark:border-white/10 py-2 px-2 text-[#0A192F] dark:text-white focus:outline-none focus:border-purple-500 transition-all font-bold text-sm cursor-pointer min-w-[200px] uppercase tracking-wider"
-              >
-                <option value="All" className="bg-[#F9F7F2] dark:bg-[#0A192F] text-[#0A192F] dark:text-white">All Ratings</option>
-                <option value="5" className="bg-[#F9F7F2] dark:bg-[#0A192F] text-[#0A192F] dark:text-white">5 Stars</option>
-                <option value="4" className="bg-[#F9F7F2] dark:bg-[#0A192F] text-[#0A192F] dark:text-white">4 Stars</option>
-                <option value="3" className="bg-[#F9F7F2] dark:bg-[#0A192F] text-[#0A192F] dark:text-white">3 Stars</option>
-                <option value="2" className="bg-[#F9F7F2] dark:bg-[#0A192F] text-[#0A192F] dark:text-white">2 Stars</option>
-                <option value="1" className="bg-[#F9F7F2] dark:bg-[#0A192F] text-[#0A192F] dark:text-white">1 Star</option>
-              </select>
-            </div>
-
-            <div className="flex flex-col items-start gap-3">
-              <label className="text-[10px] font-bold uppercase tracking-wider text-purple-400/80 ml-2">Category</label>
-              <select
-                value={localPetType}
-                onChange={(e) => setLocalPetType(e.target.value as any)}
-                className="bg-transparent border-b-2 border-[#0A192F]/10 dark:border-white/10 py-2 px-2 text-[#0A192F] dark:text-white focus:outline-none focus:border-purple-500 transition-all font-bold text-sm cursor-pointer min-w-[200px] uppercase tracking-wider"
-              >
-                <option value="Default" className="bg-[#F9F7F2] dark:bg-[#0A192F] text-[#0A192F] dark:text-white">Smart (Matches Toggle)</option>
-                <option value="All" className="bg-[#F9F7F2] dark:bg-[#0A192F] text-[#0A192F] dark:text-white">All Pets</option>
-                <option value="dog" className="bg-[#F9F7F2] dark:bg-[#0A192F] text-[#0A192F] dark:text-white">Dogs Only</option>
-                <option value="cat" className="bg-[#F9F7F2] dark:bg-[#0A192F] text-[#0A192F] dark:text-white">Cats Only</option>
-              </select>
-            </div>
-
-          </div>
         </div>
 
         {currentReviews.length > 0 ? (
@@ -396,34 +352,32 @@ export function Footer({ activePet }: SectionsProps) {
 
         <div className="flex flex-col md:flex-row justify-center gap-12 md:gap-24 pt-12 w-full text-center md:text-left">
           {/* Services Column */}
-          <div className="flex flex-col items-center md:items-start gap-6">
-            <h4 className="text-purple-400 font-black uppercase tracking-widest text-[11px]">Services</h4>
-            <div className="flex flex-col sm:flex-row gap-10 md:gap-16">
-              <div className="flex flex-col items-center md:items-start gap-3">
-                <p className="text-[#0A192F] dark:text-white text-[10px] font-black uppercase tracking-[0.2em] opacity-80">Ala Carte</p>
-                <div className="flex flex-col items-center md:items-start gap-2">
-                  {[
-                    "Happy Bath", "Super Grooming", "Puff Styling",
-                    "Kitty Hygiene", "Super Kitty Grooming", "Puff Cat Styling"
-                  ].map((s) => (
-                    <span key={s} className="text-[#0A192F]/40 dark:text-white/40 text-[11px] font-medium hover:text-purple-400 transition-colors cursor-default whitespace-nowrap">
-                      {s}
-                    </span>
-                  ))}
-                </div>
+          <div className="flex flex-col items-center">
+            <h4 className="text-purple-400 font-black uppercase tracking-widest text-[11px] mb-6">Services</h4>
+            <div className="flex flex-row gap-10">
+              {/* Ala Carte */}
+              <div className="flex flex-col items-center md:items-start gap-2">
+                <p className="text-[#0A192F] dark:text-white text-[10px] font-bold uppercase tracking-[0.15em] opacity-70 mb-1">Ala Carte</p>
+                {[
+                  "Happy Bath", "Super Grooming", "Puff Styling",
+                  "Kitty Hygiene", "Super Kitty Grooming", "Puff Cat Styling"
+                ].map((s) => (
+                  <span key={s} className="text-[#0A192F]/40 dark:text-white/40 text-[11px] font-medium hover:text-purple-400 transition-colors cursor-default whitespace-nowrap">
+                    {s}
+                  </span>
+                ))}
               </div>
-              <div className="flex flex-col items-center md:items-start gap-3">
-                <p className="text-[#0A192F] dark:text-white text-[10px] font-black uppercase tracking-[0.2em] opacity-80">Subscriptions</p>
-                <div className="flex flex-col items-center md:items-start gap-2">
-                  {[
-                    "Happy Bath Monthly", "Elite Grooming Circle",
-                    "Royal Styling Circle", "Monthly Feline Care"
-                  ].map((s) => (
-                    <span key={s} className="text-[#0A192F]/40 dark:text-white/40 text-[11px] font-medium hover:text-purple-400 transition-colors cursor-default whitespace-nowrap">
-                      {s}
-                    </span>
-                  ))}
-                </div>
+              {/* Subscriptions */}
+              <div className="flex flex-col items-center md:items-start gap-2">
+                <p className="text-[#0A192F] dark:text-white text-[10px] font-bold uppercase tracking-[0.15em] opacity-70 mb-1">Subscriptions</p>
+                {[
+                  "Happy Bath Monthly", "Elite Grooming Circle",
+                  "Royal Styling Circle", "Monthly Feline Care"
+                ].map((s) => (
+                  <span key={s} className="text-[#0A192F]/40 dark:text-white/40 text-[11px] font-medium hover:text-purple-400 transition-colors cursor-default whitespace-nowrap">
+                    {s}
+                  </span>
+                ))}
               </div>
             </div>
           </div>

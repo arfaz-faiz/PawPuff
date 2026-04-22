@@ -1,19 +1,31 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Space_Grotesk, DM_Sans, Outfit } from "next/font/google";
 import React from "react";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+// Premium heading font - bold, modern, geometric
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-heading",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
-const inter = Inter({
+// Clean body font
+const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
+// Alternative display font for special elements
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -29,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${playfair.variable} ${inter.variable} font-sans antialiased`}
+        className={`${spaceGrotesk.variable} ${dmSans.variable} ${outfit.variable} font-sans antialiased`}
       >
         <ThemeProvider>
           {children}

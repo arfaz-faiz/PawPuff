@@ -65,19 +65,10 @@ export default function Navbar({
           }}
           className="flex items-center group transition-all duration-300 hover:scale-105 active:scale-95"
         >
-          <motion.img 
+          <img 
             src="/images/logo.png" 
             alt="PawPuff Logo"
-            animate={{ 
-              y: [0, -5, 0],
-              filter: [
-                "drop-shadow(0 0 15px rgba(168,85,247,0.3))",
-                "drop-shadow(0 0 25px rgba(168,85,247,0.7))",
-                "drop-shadow(0 0 15px rgba(168,85,247,0.3))"
-              ]
-            }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="h-24 w-auto object-contain transition-transform duration-300" 
+            className="h-24 w-auto object-contain transition-all duration-300 animate-gentle-float drop-shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:drop-shadow-[0_0_30px_rgba(168,85,247,0.6)]" 
           />
         </Link>
 
