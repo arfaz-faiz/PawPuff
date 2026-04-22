@@ -32,12 +32,11 @@ export function PricingGrid({
     <section id="pricing" className="py-24 px-8 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <motion.h2
-            whileHover={{ scale: 1.02 }}
-            className="hover:text-purple-400 text-4xl md:text-5xl font-bold text-[#0A192F] dark:text-white mb-6 transition-colors duration-700 cursor-default"
+          <h2
+            className="hover:text-purple-400 text-4xl md:text-5xl font-bold text-[#0A192F] dark:text-white mb-6 transition-colors duration-500 cursor-default"
           >
             Grooming <span>Services</span>
-          </motion.h2>
+          </h2>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-10">
             {/* Pet Toggle */}
             <div className="flex bg-[#0A192F]/5 dark:bg-white/5 p-1 rounded-full border border-[#0A192F]/10 dark:border-white/10">
@@ -97,16 +96,14 @@ export function PricingGrid({
                     Signature
                   </span>
                 )}
-                <motion.h3
-                  whileHover={{ scale: 1.02 }}
-                  className="hover:text-purple-400 text-2xl font-black text-[#0A192F] dark:text-white transition-colors duration-700 cursor-default"
+                <h3
+                  className="hover:text-purple-400 text-2xl font-black text-[#0A192F] dark:text-white transition-colors duration-500 cursor-default"
                 >
                   {item.name}
-                </motion.h3>
+                </h3>
                 <div className="flex items-baseline gap-1">
-                  <motion.span
-                    whileHover={{ scale: 1.01 }}
-                    className="hover:text-purple-400 text-3xl font-black text-[#0A192F] dark:text-white transition-colors duration-700 cursor-default"
+                  <span
+                    className="hover:text-purple-400 text-3xl font-black text-[#0A192F] dark:text-white transition-colors duration-500 cursor-default"
                   >
                     ₹{item.price}
                   </motion.span>
@@ -213,12 +210,11 @@ export function Reviews({ activePet }: { activePet: "dog" | "cat" | null }) {
               <Star key={i} size={20} className="fill-purple-500 text-purple-400" />
             ))}
           </div>
-          <motion.h2
-            whileHover={{ scale: 1.02 }}
-            className="hover:text-purple-400 text-4xl md:text-5xl font-black text-[#0A192F] dark:text-white tracking-tighter transition-colors duration-700 cursor-default mb-10"
+          <h2
+            className="hover:text-purple-400 text-4xl md:text-5xl font-black text-[#0A192F] dark:text-white tracking-tighter transition-colors duration-500 cursor-default mb-10"
           >
             What our <span>Loyal Clients</span> said
-          </motion.h2>
+          </h2>
 
           {/* Filters UI */}
           <div className="flex flex-wrap items-center justify-center gap-8 bg-[#0A192F]/5 dark:bg-white/5 p-6 rounded-3xl border border-[#0A192F]/10 dark:border-white/10">
@@ -309,15 +305,13 @@ export function ContactSection() {
             </p>
 
             <div className="space-y-10">
-              {[
-                { icon: Mail, label: "Correspondence", value: "mohammednawaz38740@gmail.com" },
+              {[{ icon: Mail, label: "Correspondence", value: "mohammednawaz38740@gmail.com" },
                 { icon: Phone, label: "Concierge Line", value: "+91 89047 33018" },
                 { icon: MapPin, label: "Headquarters", value: "777 Luxury Row, Beverly Hills, CA" }
               ].map((item, i) => (
-                <motion.div
+                <div
                   key={i}
-                  whileHover={{ x: 10 }}
-                  className="flex items-center gap-6 group cursor-pointer"
+                  className="flex items-center gap-6 group cursor-pointer hover:translate-x-2 transition-transform duration-300"
                 >
                   <div className="w-14 h-14 rounded-2xl bg-[#0A192F]/5 dark:bg-white/5 border border-[#0A192F]/10 dark:border-white/10 flex items-center justify-center text-purple-400 group-hover:bg-purple-500 group-hover:text-[#0A192F] transition-all duration-500 shadow-xl">
                     <item.icon size={20} />
@@ -326,7 +320,7 @@ export function ContactSection() {
                     <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-purple-400 mb-1 opacity-60">{item.label}</p>
                     <p className="text-xl font-bold text-[#0A192F] dark:text-white transition-colors duration-300 group-hover:text-purple-400">{item.value}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -348,14 +342,12 @@ export function ContactSection() {
                   className="w-full bg-[#0A192F]/5 dark:bg-white/5 border border-[#0A192F]/10 dark:border-white/10 rounded-2xl py-5 px-8 text-[#0A192F] dark:text-white placeholder:text-[#0A192F]/20 dark:placeholder:text-white/20 focus:outline-none focus:border-purple-500/50 transition-all text-lg"
                 />
               </div>
-              <motion.button
+              <button
                 type="submit"
-                whileHover={{ scale: 1.02, backgroundColor: "#A855F7", color: "#F9F7F2" }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full py-5 px-10 rounded-2xl bg-purple-500 text-[#0A192F] font-black uppercase tracking-[0.3em] text-xs transition-all shadow-[0_20px_40px_rgba(168,85,247,0.1)]"
+                className="w-full py-5 px-10 rounded-2xl bg-purple-500 text-[#0A192F] font-black uppercase tracking-[0.3em] text-xs transition-all shadow-[0_20px_40px_rgba(168,85,247,0.1)] hover:scale-[1.02] hover:bg-purple-400 active:scale-[0.98]"
               >
                 Send Inquiry
-              </motion.button>
+              </button>
               <p className="text-[10px] text-center text-[#0A192F]/30 dark:text-white/30 uppercase tracking-[0.2em] font-medium">
                 Our team responds within 2 business hours.
               </p>
@@ -378,35 +370,24 @@ export function Footer({ activePet }: SectionsProps) {
         {!isSecondaryPage && (
           <>
             <div className="mb-12">
-              <motion.img
+              <img
                 src="/images/logo.png"
                 alt="PawPuff Logo"
-                animate={{
-                  y: [0, -15, 0],
-                  filter: [
-                    "drop-shadow(0 0 20px rgba(192,132,252,0.3))",
-                    "drop-shadow(0 0 60px rgba(192,132,252,0.6))",
-                    "drop-shadow(0 0 20px rgba(192,132,252,0.3))"
-                  ]
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="h-64 w-auto object-contain mx-auto transition-transform duration-300 hover:scale-110"
+                className="h-64 w-auto object-contain mx-auto transition-transform duration-300 hover:scale-110 drop-shadow-[0_0_30px_rgba(192,132,252,0.4)]"
               />
             </div>
 
             <div className="max-w-3xl space-y-8">
-              <motion.h3
-                whileHover={{ scale: 1.02 }}
-                className="hover:text-purple-400 text-2xl md:text-4xl font-bold text-[#0A192F] dark:text-white leading-tight transition-colors duration-1000 cursor-default"
+              <h3
+                className="hover:text-purple-400 text-2xl md:text-4xl font-bold text-[#0A192F] dark:text-white leading-tight transition-colors duration-500 cursor-default"
               >
                 "Where Luxury meets Loyalty"
-              </motion.h3>
-              <motion.p
-                whileHover={{ scale: 1.01 }}
-                className="hover:text-purple-400 text-xl text-[#0A192F]/70 dark:text-white/70 font-light leading-relaxed hover:text-[#0A192F] dark:hover:text-white transition-colors duration-700 cursor-default"
+              </h3>
+              <p
+                className="hover:text-purple-400 text-xl text-[#0A192F]/70 dark:text-white/70 font-light leading-relaxed hover:text-[#0A192F] dark:hover:text-white transition-colors duration-500 cursor-default"
               >
                 We redefine pet care by deploying our vetted, professional Grooming Partners to your doorstep, providing a personalized, salon-quality service in the one place your pet feels safest: their home. Our mobile model ensures maximum convenience for you and minimal stress for your cherished companion.
-              </motion.p>
+              </p>
             </div>
 
             <div className="mt-10 w-full border-t border-[#0A192F]/10 dark:border-white/10"></div>
