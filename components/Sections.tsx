@@ -318,7 +318,7 @@ export function Footer({ activePet }: SectionsProps) {
 
   return (
     <footer id="about" className="py-16 px-8 bg-transparent border-t border-[#0A192F]/5 dark:border-white/5 relative z-10">
-      <div className="max-w-7xl auto flex flex-col items-center text-center">
+      <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
         {!isSecondaryPage && (
           <>
             <div className="mb-12">
@@ -331,7 +331,7 @@ export function Footer({ activePet }: SectionsProps) {
 
             <div className="max-w-3xl space-y-8">
               <h3
-                className="hover:text-purple-400 text-2xl md:text-4xl font-bold text-[#0A192F] dark:text-white leading-tight transition-colors duration-500 cursor-default"
+                className="font-display hover:text-purple-400 text-2xl md:text-4xl font-black text-[#0A192F] dark:text-white tracking-[-0.02em] leading-tight transition-colors duration-500 cursor-default"
               >
                 "Where Luxury meets Loyalty"
               </h3>

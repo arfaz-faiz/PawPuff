@@ -55,7 +55,7 @@ export default function Navbar({
   return (
     <>
       {/* Header */}
-      <nav className="fixed top-0 w-full z-50 flex items-center justify-between px-12 py-4 bg-navy/80 backdrop-blur-xl border-b border-white/[0.03]">
+      <nav className="fixed top-0 w-full z-50 flex items-center justify-between px-4 md:px-12 py-3 md:py-4 bg-navy/80 backdrop-blur-xl border-b border-white/[0.03]">
         <Link
           href="/"
           onClick={() => {
