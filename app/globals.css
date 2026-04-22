@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --color-foreground: #0A192F; /* Midnight Navy for Light Mode */
+    --color-background: #F9F7F2; /* Pearl White */
+    --background: 249 247 242; /* Pearl White (#F9F7F2) */
+    --foreground: 10 25 47;    /* Midnight Navy (#0A192F) */
+    --accent: 56 189 248;      /* Sky Blue */
+    --card: 255 255 255;
+    --border: 240 249 255;
+    --font-serif: var(--font-playfair);
+    --font-sans: var(--font-outfit);
+  }
+  .dark,
+  [data-theme='dark'],
+  :where(.dark),
+  :where([data-theme='dark']) {
+    --color-foreground: #F9F7F2; /* Pearl White for Dark Mode */
+    --color-background: #0A192F; /* Midnight Navy */
+    --background: 10 25 47;     /* Midnight Navy */
+    --foreground: 249 247 242;   /* Pearl White */
+    --card: 15 34 61;
+    --border: 30 58 102;
+  }
+  body {
+    background-color: rgb(var(--background)) !important;
+    color: rgb(var(--foreground)) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+}
+
+select option {
+  background-color: #F9F7F2;
+  color: #0A192F;
+}
+
+.dark select option,
+[data-theme='dark'] select option {
+  background-color: #0A192F;
+  color: #F9F7F2;
+}
