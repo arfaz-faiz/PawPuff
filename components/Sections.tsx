@@ -108,17 +108,13 @@ export function PricingGrid({
                   >
                     ₹{item.price}
                   </span>
-                  <span className="text-[#0A192F]/60 dark:text-white/60 text-sm font-medium">/ session</span>
+                  <span className="text-[#0A192F]/60 dark:text-white/60 text-sm font-medium">
+                    {activeTab === "subscriptions" ? "/ package" : "/ session"}
+                  </span>
                 </div>
 
                 <ul className="space-y-5 mb-12 w-full">
-                  {[
-                    "Premium Organic Shampoo",
-                    "Aromatherapy Session",
-                    "Hand Blow-dry & Style",
-                    "Nail Clipping & Filing",
-                    "Paw Balm Treatment"
-                  ].map((feature, i) => (
+                  {item.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-4 text-[#0A192F]/60 dark:text-white/60 text-sm font-medium">
                       <div className="w-1.5 h-1.5 rounded-full bg-purple-400/40 shadow-[0_0_8px_rgba(168,85,247,0.5)]" />
                       {feature}

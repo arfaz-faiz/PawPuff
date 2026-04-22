@@ -31,24 +31,24 @@ export const PRICING = {
         id: "sub-dog-bath", 
         name: "Happy Bath Monthly", 
         price: 4950,
-        description: "Weekly refreshing sessions to keep your dog pristine.",
-        features: ["4 Sessions Monthly", "Priority Booking", "Free De-Shedding", "Member-Only Spa Access"],
+        description: "5 refreshing bath sessions to keep your dog pristine.",
+        features: ["5 Bath Sessions", "Priority Booking", "Free De-Shedding", "Member-Only Spa Access"],
         popular: true
       },
       { 
         id: "sub-dog-groom", 
         name: "Elite Grooming Membership", 
         price: 6745,
-        description: "Bi-weekly full grooming for a permanent elite look.",
-        features: ["2 Super Groomings", "2 Refresh Baths", "unlimited Nail Clips", "20% off Store Items"],
+        description: "5 full grooming sessions for a permanent elite look.",
+        features: ["5 Super Groomings", "Priority Booking", "Unlimited Nail Clips"],
         popular: false
       },
       { 
         id: "sub-dog-style", 
         name: "Royal Styling Circle", 
         price: 8995,
-        description: "The ultimate unlimited maintenance for show-stopping dogs.",
-        features: ["Unlimited Styling", "Concierge Pickup", "Home Grooming Opt", "Exclusive Event Access"],
+        description: "5 premium styling sessions for show-stopping dogs.",
+        features: ["5 Styling Sessions", "Concierge Pickup", "Home Grooming Opt", "Exclusive Event Access"],
         popular: false
       },
     ],
@@ -85,8 +85,8 @@ export const PRICING = {
         id: "sub-cat-hygiene", 
         name: "Monthly Feline Care", 
         price: 4495,
-        description: "Regular maintenance to keep your cat comfortable and clean.",
-        features: ["4 Hygiene Sessions", "De-Shedding", "Emergency Grooming", "Home Tips"],
+        description: "5 sessions to keep your cat comfortable and clean.",
+        features: ["5 Hygiene Sessions", "De-Shedding", "Emergency Grooming", "Home Tips"],
         popular: true
       },
     ],
