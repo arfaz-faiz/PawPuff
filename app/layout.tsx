@@ -31,6 +31,10 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "PawPuff - Premium Pet Care",
   description: "Experience the finest grooming, styling, and wellness services for your beloved pets.",
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({
