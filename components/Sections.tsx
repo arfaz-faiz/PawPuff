@@ -390,10 +390,17 @@ export function Footer({ activePet }: SectionsProps) {
           </div>
 
           <div className="flex flex-col items-center md:items-start gap-6">
+            <h4 className="text-purple-400 font-black uppercase tracking-widest text-[11px]">Legal</h4>
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <Link href="/privacy" className="text-[#0A192F]/40 dark:text-white/40 hover:text-[#0A192F] dark:hover:text-white transition-colors text-[11px] font-medium">Privacy Policy</Link>
+              <Link href="/terms" className="text-[#0A192F]/40 dark:text-white/40 hover:text-[#0A192F] dark:hover:text-white transition-colors text-[11px] font-medium">Terms of Service</Link>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center md:items-start gap-6">
             <h4 className="text-purple-400 font-black uppercase tracking-widest text-[11px]">Social</h4>
             <div className="flex flex-col items-center md:items-start gap-2">
               <a href="https://www.instagram.com/pawpuff.pet?igsh=cTQ1eGR1ZnJmMmQ4&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-[#0A192F]/40 dark:text-white/40 hover:text-[#0A192F] dark:hover:text-white transition-colors text-[11px] font-medium">Instagram</a>
-              <a href="https://twitter.com/pawpuff" target="_blank" rel="noopener noreferrer" className="text-[#0A192F]/40 dark:text-white/40 hover:text-[#0A192F] dark:hover:text-white transition-colors text-[11px] font-medium">Twitter</a>
               <a href="https://api.whatsapp.com/send/?phone=919035392226&text=Hello+PawPuff!+I'm+reaching+out+from+your+social+links.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="text-[#0A192F]/40 dark:text-white/40 hover:text-[#0A192F] dark:hover:text-white transition-colors text-[11px] font-medium">WhatsApp</a>
             </div>
           </div>
