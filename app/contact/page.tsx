@@ -63,7 +63,7 @@ export default function ContactPage() {
     } catch (error) {
       // Fallback to WhatsApp
       const waText = `Hello PawPuff!\n\nName: ${sheetData.name}\nEmail: ${sheetData.email}\nInterest: ${sheetData.subject}\nMessage: ${sheetData.message}`;
-      window.open(`https://wa.me/919035392226?text=${encodeURIComponent(waText)}`, "_blank");
+      window.open(`https://wa.me/919035692226?text=${encodeURIComponent(waText)}`, "_blank");
       setStatus({ type: "success", message: "Redirecting to WhatsApp..." });
     } finally {
       setIsSubmitting(false);
@@ -110,8 +110,8 @@ export default function ContactPage() {
                 { 
                   icon: Phone, 
                   title: "WhatsApp", 
-                  value: "+91 90353 92226",
-                  href: "https://wa.me/919035392226"
+                  value: "+91 90356 92226",
+                  href: "https://wa.me/919035692226?text=Hello"
                 }
               ].map((item, i) => (
                 <motion.a 

@@ -5,50 +5,58 @@ export const PRICING = {
         id: "dog-bath", 
         name: "Happy Bath", 
         price: 1100,
-        description: "A refreshing and hygienic bath for your loyal companion.",
-        features: ["Deep Cleansing", "Ear Cleaning", "Nail Clipping", "Blow Dry"],
+        description: "Bath with Premium Shampoo, Conditioner, Blow Dry, Combing & Brushing",
+        features: ["Premium Shampoo", "Conditioner", "Blow Dry", "Combing & Brushing"],
         popular: false
       },
       { 
         id: "dog-groom", 
         name: "Super Grooming", 
         price: 1499,
-        description: "Full body styling and hygiene for a complete transformation.",
-        features: ["Everything in Bath", "Hair Styling", "Paw Massage", "Perfume Spray"],
+        description: "Happy Bath, Paw Massage, Teeth Clean, Nail Clip, Ear Clean, Eye Clean, Sanitary Clip",
+        features: ["Everything in Happy Bath", "Paw Massage", "Teeth Clean", "Nail Clip", "Ear & Eye Clean", "Sanitary Clip"],
         popular: true
+      },
+      { 
+        id: "dog-trim", 
+        name: "Paw Trim", 
+        price: 1299,
+        description: "Full Body Trimming (No Hairstyling) Nail Clipping, Ear Cleaning, Eye Cleaning",
+        features: ["Full Body Trimming", "Nail Clipping", "Ear Cleaning", "Eye Cleaning"],
+        popular: false
       },
       { 
         id: "dog-style", 
         name: "Puff Styling", 
         price: 1999,
-        description: "Elite artisan styling for the most discerning show-dogs.",
-        features: ["Artisan Cut", "Hydrating Mask", "Scissor Finish", "Silk Coat Therapy"],
+        description: "Super Grooming, Full Body Trimming, Hair Styling",
+        features: ["Super Grooming", "Full Body Trimming", "Hair Styling"],
         popular: false
       },
     ],
     subscriptions: [
       { 
         id: "sub-dog-bath", 
-        name: "Happy Bath Monthly", 
+        name: "Happy Bath", 
         price: 4950,
-        description: "5 refreshing bath sessions to keep your dog pristine.",
-        features: ["5 Bath Sessions", "Priority Booking", "Free De-Shedding", "Member-Only Spa Access"],
+        description: "5 refreshing bath sessions with premium care.",
+        features: ["5 Bath Sessions", "Priority Booking", "Member-Only Spa Access"],
         popular: true
       },
       { 
         id: "sub-dog-groom", 
-        name: "Elite Grooming Membership", 
+        name: "Super Grooming", 
         price: 6745,
-        description: "5 full grooming sessions for a permanent elite look.",
-        features: ["5 Super Groomings", "Priority Booking", "Unlimited Nail Clips"],
+        description: "5 full grooming sessions for consistent concierge care.",
+        features: ["5 Super Grooming Sessions", "Priority Booking", "Unlimited Nail Clips"],
         popular: false
       },
       { 
         id: "sub-dog-style", 
-        name: "Royal Styling Circle", 
+        name: "Puff Styling", 
         price: 8995,
-        description: "5 premium styling sessions for show-stopping dogs.",
-        features: ["5 Styling Sessions", "Concierge Pickup", "Home Grooming Opt", "Exclusive Event Access"],
+        description: "5 premium styling sessions for a polished look.",
+        features: ["5 Styling Sessions", "Concierge Pickup", "Home Grooming Option", "Exclusive Event Access"],
         popular: false
       },
     ],
@@ -59,34 +67,34 @@ export const PRICING = {
         id: "cat-hygiene", 
         name: "Kitty Hygiene", 
         price: 999,
-        description: "Stress-free essential hygiene for your feline friend.",
-        features: ["Dry Foam Bath", "Ear Cleaning", "Claw Clipping", "Brushing"],
+        description: "Nail Clip, Teeth Cleaning, Ear-Eye Cleaning, Sanitary Clipping, Combing & Brushing",
+        features: ["Nail Clip", "Teeth Cleaning", "Ear & Eye Cleaning", "Sanitary Clipping", "Combing & Brushing"],
         popular: false
       },
       { 
         id: "cat-groom", 
-        name: "Super Kitty Grooming", 
+        name: "Super Grooming", 
         price: 1499,
-        description: "Complete styling and spa treatment specifically for cats.",
-        features: ["Full Grooming", "Scented Spas", "Mat Removal", "Skin Conditioning"],
+        description: "Bath with Premium Shampoo, Conditioner, Blow Dry, Paw Massage, Minor Trim",
+        features: ["Premium Bath", "Conditioner", "Blow Dry", "Paw Massage", "Minor Trim"],
         popular: true
       },
       { 
         id: "cat-style", 
-        name: "Puff Cat Styling", 
+        name: "Puff Styling", 
         price: 1999,
-        description: "Artisan feline styling for the truly discerning cat.",
-        features: ["Show Cut", "Silk Wash", "Eye Care", "Coat Nourishment"],
+        description: "Super Grooming, Full Body Trimming, Hair Styling",
+        features: ["Super Grooming", "Full Body Trimming", "Hair Styling"],
         popular: false
       },
     ],
     subscriptions: [
       { 
         id: "sub-cat-hygiene", 
-        name: "Monthly Feline Care", 
+        name: "Kitty Hygiene", 
         price: 4495,
-        description: "5 sessions to keep your cat comfortable and clean.",
-        features: ["5 Hygiene Sessions", "De-Shedding", "Emergency Grooming", "Home Tips"],
+        description: "5 feline hygiene sessions for calm comfort.",
+        features: ["5 Hygiene Sessions", "Priority Booking", "Home Care Tips"],
         popular: true
       },
     ],

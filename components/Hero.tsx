@@ -106,7 +106,7 @@ export default function Hero({ activePet }: HeroProps) {
           >
             {/* Primary CTA */}
             <a
-                href="https://api.whatsapp.com/send/?phone=919035392226&text=Hello+Pawpuff%2C+I+would+like+to+book+an+appointment+for+my+pet&type=phone_number&app_absent=0"
+                href="https://api.whatsapp.com/send/?phone=919035692226&text=Hello&type=phone_number&app_absent=0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative flex items-center justify-center gap-4 bg-purple-500 text-white font-bold tracking-wider text-sm py-5 px-10 rounded-full shadow-[0_20px_50px_rgba(168,85,247,0.35)] transition-all duration-300 min-w-[220px] overflow-hidden hover:scale-105 hover:shadow-[0_25px_60px_rgba(168,85,247,0.5)] active:scale-[0.98] animate-pulse-glow"
@@ -141,7 +141,7 @@ export default function Hero({ activePet }: HeroProps) {
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20">
               <Star size={16} className="text-amber-500 fill-amber-500" />
-              <span className="text-sm font-semibold text-amber-600 dark:text-amber-400">5.0 Rating</span>
+              <span className="text-sm font-semibold text-amber-600 dark:text-amber-400">4.8 Rating</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20">
               <Home size={16} className="text-purple-500" />

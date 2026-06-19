@@ -76,7 +76,7 @@ export function PricingGrid({
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-10 stagger-children">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 stagger-children">
           {currentData.map((item, index) => (
             <motion.div
               key={item.id}
@@ -87,7 +87,7 @@ export function PricingGrid({
               transition={{ duration: 0.5, delay: index * 0.1 }}
               onMouseEnter={() => setIsHoveringService?.(true)}
               onMouseLeave={() => setIsHoveringService?.(false)}
-              className="relative p-12 bg-[#0A192F]/5 dark:bg-white/5 backdrop-blur-xl border border-[#0A192F]/10 dark:border-white/10 hover:border-purple-500/50 group transition-all duration-500 max-w-sm w-full flex flex-col rounded-[45px] overflow-hidden scroll-mt-32 hover-lift card-shine"
+              className="relative p-12 bg-[#0A192F]/5 dark:bg-white/5 backdrop-blur-xl border border-[#0A192F]/10 dark:border-white/10 hover:border-purple-500/50 group transition-all duration-500 w-full flex flex-col rounded-[45px] overflow-hidden scroll-mt-32 hover-lift card-shine"
             >
               {/* Signature badge - absolutely positioned */}
               {index === currentData.length - 1 && (
@@ -123,7 +123,7 @@ export function PricingGrid({
                 </ul>
 
                 <Link
-                  href={`https://api.whatsapp.com/send/?phone=919035392226&text=Hello+Pawpuff%2C+I+would+like+to+book+the+${item.name}+service+for+my+pet&type=phone_number&app_absent=0`}
+                  href={`https://api.whatsapp.com/send/?phone=919035692226&text=Hello&type=phone_number&app_absent=0`}
                   target="_blank"
                   className="mt-auto w-full py-5 rounded-2xl bg-[#0A192F]/5 dark:bg-white/5 border border-[#0A192F]/10 dark:border-white/10 text-[#0A192F] dark:text-white font-semibold text-sm tracking-wide transition-all duration-300 hover:bg-purple-600 hover:text-white hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] active:scale-95 flex items-center justify-center"
                 >
@@ -401,7 +401,7 @@ export function Footer({ activePet }: SectionsProps) {
             <h4 className="text-purple-400 font-black uppercase tracking-widest text-[11px]">Social</h4>
             <div className="flex flex-col items-center md:items-start gap-2">
               <a href="https://www.instagram.com/pawpuff.pet?igsh=cTQ1eGR1ZnJmMmQ4&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-[#0A192F]/40 dark:text-white/40 hover:text-[#0A192F] dark:hover:text-white transition-colors text-[11px] font-medium">Instagram</a>
-              <a href="https://api.whatsapp.com/send/?phone=919035392226&text=Hello+PawPuff!+I'm+reaching+out+from+your+social+links.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="text-[#0A192F]/40 dark:text-white/40 hover:text-[#0A192F] dark:hover:text-white transition-colors text-[11px] font-medium">WhatsApp</a>
+              <a href="https://api.whatsapp.com/send/?phone=919035692226&text=Hello&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="text-[#0A192F]/40 dark:text-white/40 hover:text-[#0A192F] dark:hover:text-white transition-colors text-[11px] font-medium">WhatsApp</a>
             </div>
           </div>
         </div>
