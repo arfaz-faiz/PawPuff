@@ -20,7 +20,7 @@ export const PRICING = {
       { 
         id: "dog-trim", 
         name: "Paw Trim", 
-        price: 1299,
+        price: 1599,
         description: "Full Body Trimming (No Hairstyling) Nail Clipping, Ear Cleaning, Eye Cleaning",
         features: ["Full Body Trimming", "Nail Clipping", "Ear Cleaning", "Eye Cleaning"],
         popular: false
